@@ -8,10 +8,10 @@ namespace Laboratorio_2
 {
     public class Canción
     {
-        protected string nombre;
-        protected string artista;
-        protected string album;
-        protected string genero;
+        public string nombre;
+        public string artista;
+        public string album;
+        public string genero;
 
         public string Informacion()
         {
@@ -26,5 +26,6 @@ namespace Laboratorio_2
             genero = aGenero;
 
         }
+
     }
 }
