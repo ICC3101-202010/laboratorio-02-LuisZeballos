@@ -14,6 +14,7 @@ namespace Laboratorio_2
         public string[] generos = { };
         List<Playlist> playlists = new List<Playlist>();
 
+
         public Espotifai(string[] aNombres, string[] aArtistas, string[] aAlbums, string[] aGeneros)
         {
             nombres = aNombres;
