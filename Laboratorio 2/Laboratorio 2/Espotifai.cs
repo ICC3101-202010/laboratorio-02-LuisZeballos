@@ -12,6 +12,7 @@ namespace Laboratorio_2
         public string[] artistas = { };
         public string[] albumes = { };
         public string[] generos = { };
+        List<Playlist> playlists = new List<Playlist>();
 
         public Espotifai(string[] aNombres, string[] aArtistas, string[] aAlbums, string[] aGeneros)
         {
@@ -24,25 +25,17 @@ namespace Laboratorio_2
 
         public bool AgregarCancion(string bNombre, string bArtista, string bAlbumes)
         {
-            if (nombres[0] == bNombre && artistas[0] == bArtista && albumes[0] == bAlbumes)
+            int i = 0;
+            while (i <= 2)
             {
-
-                return false;
+                if (nombres[i] == bNombre && artistas[i] == bArtista && albumes[i] == bAlbumes)
+                {
+                    return false;
+                }
+                i++;
             }
-            else if (nombres[1] == bNombre && artistas[1] == bArtista && albumes[1] == bAlbumes)
-            {
-                return false;
-            }
-            else if (nombres[2] == bNombre && artistas[2] == bArtista && albumes[2] == bAlbumes)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
+            return true;
+        }   
         public void VerCanciones()
         {
             int i = 0;
@@ -122,5 +115,191 @@ namespace Laboratorio_2
                 Console.WriteLine("No hubo resultados");
             }
         }
+        public bool GenerarPlaylist(String criterio, String valorCriterio, String nombrePlaylist)
+        {   List<string> nombress = new List<string>();
+            List<string> artistass = new List<string>();
+            List<string> albumess = new List<string>();
+            List<string> geneross = new List<string>();
+            int largo = playlists.Count;
+            int e = 0;
+            while (e < largo)
+            {
+                if (playlists[e].name == nombrePlaylist)
+                {
+                    Console.WriteLine("Ya existe una Playlist con ese nombre");
+                    return false;
+                }
+
+                e++;
+            }
+            if (criterio == "Nombre" || criterio == "nombre")
+            {
+                int i = 0;
+                while (i <= 2)
+                {
+                    if (nombres[i] == valorCriterio)
+                    {
+                        nombress.Add(valorCriterio);
+                        artistass.Add(valorCriterio);
+                        albumess.Add(valorCriterio);
+                        geneross.Add(valorCriterio);
+                        i++;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                string[] arraynombres = nombress.ToArray();
+                string[] arrayartistas = artistass.ToArray();
+                string[] arrayalbumes = albumess.ToArray();
+                string[] arraygeneros = geneross.ToArray();
+                Playlist playlist = new Playlist(nombrePlaylist, arraynombres, arrayartistas, arrayalbumes, arraygeneros);
+                playlists.Add(playlist);
+                int u = nombress.Count;
+                if (u>0)
+                {
+                    Console.WriteLine("Playlist creada con exito");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("No hubo resultados");
+                    return false;
+                }
+            }
+            else if (criterio == "Artista" || criterio == "artista")
+            {
+                int i = 0;
+                while (i <= 2)
+                {
+                    if (artistas[i] == valorCriterio)
+                    {
+                        nombress.Add(valorCriterio);
+                        artistass.Add(valorCriterio);
+                        albumess.Add(valorCriterio);
+                        geneross.Add(valorCriterio);
+                        i++;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                string[] arraynombres = nombress.ToArray();
+                string[] arrayartistas = artistass.ToArray();
+                string[] arrayalbumes = albumess.ToArray();
+                string[] arraygeneros = geneross.ToArray();
+                Playlist playlist = new Playlist(nombrePlaylist, arraynombres, arrayartistas, arrayalbumes, arraygeneros);
+                playlists.Add(playlist);
+                int u = artistass.Count;
+                if (u > 0)
+                {
+                    Console.WriteLine("Playlist creada con exito");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("No hubo resultados");
+                    return false;
+                }
+            }
+            else if (criterio == "Album" || criterio == "album" || criterio == "Álbum" || criterio == "álbum")
+            {
+                int i = 0;
+                while (i <= 2)
+                {
+                    if (albumes[i] == valorCriterio)
+                    {
+                        nombress.Add(valorCriterio);
+                        artistass.Add(valorCriterio);
+                        albumess.Add(valorCriterio);
+                        geneross.Add(valorCriterio);
+                        i++;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                string[] arraynombres = nombress.ToArray();
+                string[] arrayartistas = artistass.ToArray();
+                string[] arrayalbumes = albumess.ToArray();
+                string[] arraygeneros = geneross.ToArray();
+                Playlist playlist = new Playlist(nombrePlaylist, arraynombres, arrayartistas, arrayalbumes, arraygeneros);
+                playlists.Add(playlist);
+                int u = albumess.Count;
+                if (u > 0)
+                {
+                    Console.WriteLine("Playlist creada con exito");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("No hubo resultados");
+                    return false;
+                }
+            }
+            else if (criterio == "Genero" || criterio == "genero" || criterio == "Género" || criterio == "género")
+            {
+                int i = 0;
+                while (i <= 2)
+                {
+                    if (generos[i] == valorCriterio)
+                    {
+                        nombress.Add(valorCriterio);
+                        artistass.Add(valorCriterio);
+                        albumess.Add(valorCriterio);
+                        geneross.Add(valorCriterio);
+                        i++;
+
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                string[] arraynombres = nombress.ToArray();
+                string[] arrayartistas = artistass.ToArray();
+                string[] arrayalbumes = albumess.ToArray();
+                string[] arraygeneros = geneross.ToArray();
+                Playlist playlist = new Playlist(nombrePlaylist, arraynombres, arrayartistas, arrayalbumes, arraygeneros);
+                playlists.Add(playlist);
+                int u = geneross.Count;
+                if (u > 0)
+                {
+                    Console.WriteLine("Playlist creada con exito");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("No hubo resultados");
+                    return false;
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("No hubo resultados");
+                return false;
+            }
+        }
+        public string VerMisPlaylists() 
+        {
+            int largo = playlists.Count;
+            int e = 0;
+            int a = 0;
+            while (e < largo)
+            {
+                int lar = playlists[e].nom.Length;
+                while(a <= lar)
+                {
+                    return (playlists[e].name[a] + " de " + playlists[e].art[a] + " del álbum " + playlists[e].alb[a] + " del género"  + playlists[e].gen[a]);
+                    a++;
+                }
+            }e++;
+
+            return "";
+        }   
     }
 }
